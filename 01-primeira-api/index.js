@@ -29,6 +29,11 @@ app.post('/nome', (req, res) => {
     res.json()
 })
 
+app.get('/users', (req, res) => {
+    const nome = req.query.nome
+    res.json({mensagem: `${nome}`})
+})
+
 app.get('/aluno', (req, res) => {
     res.send("Aluno: Ricardo Vinícius - Matrícula: 22109758")
 })
