@@ -4,7 +4,7 @@
 // Código do Cargo -> Percentual:
 //  • 101 -> 5%
 //  • 102 -> 7,5%
-//  • 103 -> 10%
+//  • 103 -> 10%.
 
 const express = require('express');
 const app = express();

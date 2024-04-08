@@ -17,7 +17,7 @@
       Salário Líquido | Gratificações
       Até 3.500 | 1.000 reais
       Superior a 3.500 | 500 reais
-• Salário a receber do funcionário é igual ao salário líquido mais a gratificação.
+• Salário a receber do funcionário é igual ao salário líquido mais a gratificação..
 */
 
 const express = require('express');

@@ -5,7 +5,7 @@
     "peca": "Pneu aro 15",
     "quantidadeMinima": 10,
     "quantidadeMaxima": 150
-}
+}.
 */
 const express = require('express');
 const app = express();

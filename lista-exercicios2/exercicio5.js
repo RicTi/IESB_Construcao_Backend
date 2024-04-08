@@ -1,6 +1,6 @@
 // 5. Faça uma api que calcule e imprima o salário reajustado de um funcionário de acordo com a seguinte regra:
 //  • Salários até 2.000, reajuste de 50%
-//  • Salários maiores que 2.000, reajuste de 30%
+//  • Salários maiores que 2.000, reajuste de 30%.
 
 const express = require('express');
 const app = express();
