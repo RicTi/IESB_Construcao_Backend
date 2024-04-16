@@ -22,3 +22,7 @@ const listaPessoas = [
     }
 ];
 
+router.get('./pessoa', (req, res) => {
+    res.json(listaPessoas)
+})
+

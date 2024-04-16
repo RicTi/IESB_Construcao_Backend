@@ -22,7 +22,7 @@ const listaProdutos = [
     }
 ]
 // READ - BUSCAR TODOS OS PRODUTOS...
-router.get('/produtos', (req, res) => {
+router.get('/produto', (req, res) => {
     res.json(listaProdutos)
 })
 

@@ -43,7 +43,7 @@ router.get('/produtos/:id', (req, res) => {
 router.post('/produtos', (req, res) => {
     const dadosProduto = req.body
     const novoProduto = {
-        id: Math.round(Math.random() *),
+        id: Math.round(Math.random() * 1000),
         nome: dadosProduto.nome,
         preco: dadosProduto.preco
     }
