@@ -55,7 +55,7 @@ router.post('/produtos', (req, res) => {
     )
 })
 
-// UPDATE - 
+// UPDATE - PARA ATUALIZAR UM PRODUTO EXISTENTE PELO ID...
 router.put('/produtos/:id', (req, res) => {
     const id = req.params.id
     const novosDados = req.body
@@ -79,7 +79,20 @@ router.put('/produtos/:id', (req, res) => {
     })
 })
 
+// DELETE - PARA DELETAR UM PRODUTO PELO ID ESPECÍFICO...
+router.delete('/produtos/:id', (req, res) => {
+    const id = req.params.id;
 
+    const index = listaProdutos.findIndex(produto => produto.id == id);
+
+    if (index === -1) {
+        return res.status(404).json({ mensagem: "Produto não encontrado" });
+    }
+
+    listaProdutos.splice(index, 1);
+
+    res.json({ mensagem: "Produto DELETADO com sucesso!" });
+});
 
 // Comando para exportar o módulo "router"...
-module.exports = router"
+module.exports = router
