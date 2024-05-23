@@ -1,0 +1,34 @@
+Passo a passo na construção de um CRUD-EMPRESAS
+
+PASTAS E ARQUIVOS;
+
+api-empresas(pasta):
+	npm init;
+	npm install express nodemon dotenv yup;
+
+	src(pasta):
+		controllers(pasta):
+			CargoController.js
+			DepartamentoController.js		// arquivo onde são construídas as requisições...
+		database(pasta):
+			connection.js;				// arquivo que realiza a conexão com banco...
+
+		models:
+			Cargo.js;				// schema da tabela cargo...
+			Departamento.js;			// schema da tabela departamento...
+
+		routes:
+			routes.js;				// arquivo de rotas de requisições...
+
+		validators:
+			CargoValidator.js;			// arquivo que realiza a validação do cargo...
+			DepartamentoValidator.js;		// arquivo que realiza a validação do departamento...
+			IdValidator.js;
+
+	.env;							// arquivo de variável de ambiente...
+	package-lock.json;
+	package.json.
+
+
+
+
