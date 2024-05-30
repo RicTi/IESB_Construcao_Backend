@@ -1,0 +1,2 @@
+Primeiro montamos as requisições, depois utilizamos as informações de variáveis e ids do POSTMAN
+

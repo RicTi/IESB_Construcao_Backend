@@ -6,17 +6,11 @@ async function buscarTodos(req, res) {
 
 async function buscarPorID(req, res) {
     const cargo = await Cargo.findById(req.params.id)
-    if(cargo) {
+    if (cargo) {
         res.json(cargo)
     } else {
         res.status(404).json({ mensagem: "Cargo não encontrado!" })
     }
-}
-
-async function criar(req, res) {
-    const cargo = new Cargo(req.body)
-    const cargoCriado = await cargo.save()
-    res.status(201).json(cargoCriado)
 }
 
 async function criar(req, res) {
@@ -52,11 +46,6 @@ async function excluir(req, res) {
         res.status(404).json({ mensagem: "Cargo não encontrado!" })
     }
 }
-
-
-
-
-
 
 
 module.exports = {
