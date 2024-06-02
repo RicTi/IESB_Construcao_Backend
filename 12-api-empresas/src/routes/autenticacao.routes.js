@@ -1,39 +1,17 @@
-const mongoose = require('mongoose')
+const express = require('express')
+const router = express.Router()
 
-const schema = new mongoose.Schema(
-    {
-        titulo: {
-            type: String,
-            required: true
-        },
-        descricao: {
-            type: String,
-            required: false
-        },
-        dataInicio: {
-            type: Date,
-            required: false
-        },
-        dataFim: {
-            type: Date,
-            required: false
-        },
-        funcionario: {
-            type: mongoose.SchemaTypes.ObjectId,
-            ref: 'funcionario',
-            required: false
-        },
-        projeto: {
-            type: mongoose.SchemaTypes.ObjectId,
-            ref: 'projeto',
-            required: false
-        }
-    },
-    {
-        timestamps: true
-    }
-)
+// Controller
+const AutenticacaoController = require('../controllers/AutenticacaoController')
 
-const Tarefa = mongoose.model('tarefa', schema)
+// Validators
+const { validarUsuario, validarLogin } = require('../validators/AutenticacaoValidator')
 
-module.exports = Tarefa
+// Rotas
+router.post('/auth/registrar', validarUsuario, AutenticacaoController.registrar)
+
+router.post('/auth/login', validarLogin, AutenticacaoController.login)
+
+
+
+module.exports = router
