@@ -15,7 +15,7 @@ async function getById(req, res) {
     if (tarefa) {
         res.json(tarefa)
     } else {
-        res.status(404).json({ mensagem: "Tarefa não encontrato!" })
+        res.status(404).json({ mensagem: "Tarefa não encontrada!" })
     }
 }
 
@@ -24,7 +24,7 @@ async function update(req, res) {
     if (tarefaAtulizado) {
         res.json(tarefaAtulizado)
     } else {
-        res.status(404).json({ mensagem: "Tarefa não encontrato!" })
+        res.status(404).json({ mensagem: "Tarefa não encontrada!" })
     }
 
 }
@@ -37,7 +37,7 @@ async function remove(req, res) {
             tarefaExcluido
         })
     } else {
-        res.status(404).json({ mensagem: "Tarefa não encontrato!" })
+        res.status(404).json({ mensagem: "Tarefa não encontrada!" })
     }
 }
 
