@@ -7,12 +7,25 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 
+app.use(express.json())
+
 // Rota aberta - Rota Pública
 app.get('/', (req, res) => {
     res.status(200).json({ mensagem: "Bem vindo a nossa api teste! Este acesso é somente para visitantes."});
 });
 
-//
+// Registrar usuário
+app.post('/auth/registrar', async(req, res) => {
+    
+    const { nome, email, senha, confirmacaosenha } = req.body
+
+
+    // Validação de usuário
+    if (!nome) {
+        return res.status(422).json({ mensagem: " O campo nome é obrigatório!"})
+    }
+
+})
 
 // Credenciais de acesso.
 const DB_USER = process.env.DB_USER;

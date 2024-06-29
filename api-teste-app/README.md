@@ -7,33 +7,35 @@ Utilizamos nesse projeto o framework Express, mongoose, bcrypt, dotenv e JSON We
 
 ###### PASSO 1 ######
 
-Para a construção do teste-app:
-    npm init -y para iniciar o projeto NODE e responder sim para todas as perguntas iniciadas na criação do projeto com -y.
+Para a construção da api-teste-app:
+    npm init -y para iniciar o projeto NODE e responder sim para todas as perguntas iniciadas na criação do projeto com -y;
+    npm install express mongoose bcrypt dotenv jasonwebtoken para instalar as dependências de produção;
+    npm install --save-dev nodemon para instalar a dependência de desenvolvimento.
 
-BCRYPT:
-    Cria a hash de senha, dando mais segurança para a aplicação;
-    O bcrypt consegue pegar a senha original criada pelo usuário e criar uma hash, tornando a senha mais complexa a dificultando
-    a possibilidade dela ser hackeada. Ele também realiza o processo reverso, que é a decodificação dessa mesma hash da senha.
+    BCRYPT:
+        Cria a hash de senha, dando mais segurança para a aplicação;
+        O bcrypt consegue pegar a senha original criada pelo usuário e criar uma hash, tornando a senha mais complexa a dificultando
+        a possibilidade dela ser hackeada. Ele também realiza o processo reverso, que é a decodificação dessa mesma hash da senha.
 
-DOTENV:
-    Necessário para a configuração do arquivo .env, que é utilizado para armazenar informações que necessitam de segurança, como 
-    senhas, tokens, domínio do banco de dados, emails, cpf ou qualquer informação que necessitam de sigilo e confidencialidade; 
-    neste caso os arquivos serão aplicados a variáveis de ambiente e somente essa variáveis é que serão passadas dentro do código 
-    fonte ao passo de que as informações contidas dentro das variáveis de ambiente estão protegidas dentro do arquivo .env.
+    DOTENV:
+        Necessário para a configuração do arquivo .env, que é utilizado para armazenar informações que necessitam de segurança, como 
+        senhas, tokens, domínio do banco de dados, emails, cpf ou qualquer informação que necessitam de sigilo e confidencialidade; 
+        neste caso os arquivos serão aplicados a variáveis de ambiente e somente essa variáveis é que serão passadas dentro do código 
+        fonte ao passo de que as informações contidas dentro das variáveis de ambiente estão protegidas dentro do arquivo .env.
 
-EXPRESS:
-    Framework que possibilita a criação da api com nodeJS.
+    EXPRESS:
+        Framework que possibilita a criação da api com nodeJS.
 
-JSONWEBTOKEN:
-    Utilizado para criar e manusear o token, dando a ele ou não uma validação.
+    JSONWEBTOKEN:
+        Utilizado para criar e manusear o token, dando a ele ou não uma validação.
 
-MONGOOSE:
-    Pacote de banco de dados que faz a conexão com o banco Mongo DB.
+    MONGOOSE:
+        Pacote de banco de dados que faz a conexão com o banco Mongo DB.
 
-NODEMON:
-    É um utilitário responsável por salvar e reiniciar o servidor altomaticamente a cada alteração.
-    Será instalado na dependência de desenvolvimento utilizando o comando "npm install --save-dev nodemon", pois o nodemon será
-    usadopenas para desenvolvimento da aplicação, não sendo necessário sua intalação na dependência de produção.
+    NODEMON:
+        É um utilitário responsável por salvar e reiniciar o servidor altomaticamente a cada alteração.
+        Será instalado na dependência de desenvolvimento utilizando o comando "npm install --save-dev nodemon", pois o nodemon será
+        usado apenas para desenvolvimento da aplicação, não sendo necessário sua intalação na dependência de produção.
 
 
 CONFIGURAÇÃO DO ARQUIVO PACKAGE.JSON:
@@ -45,7 +47,7 @@ APP.JS:
     Esse será o arquivo principal da aplicação; também pode ser chamado de "index.js".          
 
 .ENV:
-    Criamos o arquivo .env dentro da pasta principal do projeto para que nele sejam salvos as variávieis de ambiente.
+    Criamos o arquivo .env dentro da pasta principal do projeto para que nele sejam salvos as variáveis de ambiente.
 
 GITIGNORE:
     Criamos esse arquivo afim de que possamos ignorar alguns arquivos afim de que não vá para o repositório do github.
@@ -53,18 +55,29 @@ GITIGNORE:
         node_modules (que pode ser baixado através de linha de comando);
         .env (que contém as variáveis de ambiente).
 
-## ATLAS MONGO DB
-Database Access:
-####> Para liberar o acesso temporário de algum usuário novo basta criar novo usuário e senha no campo Database Access, no campo de opções inferior, dentro do site do Atlas e ativar a opção de usuário temporário.
-
-Network Access:
-####> Para liberar o acesso ao banco de dados é necessário também configurar o Network Access, onde posso adicionar um IP específico para manipular meu banco de dados ou permitir o acesso mais livre, onde de qualquer máquina é permitido realizar operações.
 
 
 
 
 ###### PASSO 2 ######
+## ATLAS MONGO DB
+
+    * O passo 2 consistirá na configuração do bando de dados, bem como a criação de um banco no Atlas MongoDB, a criação de um usuário e senha para a liberação de acesso e a conexão definitiva ao banco. Após a conexão estabelecida, será criada a primeira rota de teste para registro de novo usuário.
+    Também 
 
 
+    Database Access:
+        ####> Para liberar o acesso temporário de algum usuário novo basta criar novo usuário e senha no campo Database Access, no campo de opções inferior, dentro do site do Atlas e ativar a opção de usuário temporário.
+
+    Network Access:
+        ####> Para liberar o acesso ao banco de dados é necessário também configurar o Network Access, onde posso adicionar um IP específico para manipular meu banco de dados ou permitir o acesso mais livre, onde de qualquer máquina é permitido realizar operações.
+
+
+
+
+
+
+
+###### PASSO 3 ######
 
 
