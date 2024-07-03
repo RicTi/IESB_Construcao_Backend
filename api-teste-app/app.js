@@ -7,7 +7,11 @@ const jwt = require('jsonwebtoken');
 
 const app = express();
 
-app.use(express.json())
+// Middleware para ler arquivos JSON nas requisições e respostas.
+app.use(express.json());
+
+// Models
+const User = require('./models/User');
 
 // Rota aberta - Rota Pública
 app.get('/', (req, res) => {
@@ -20,12 +24,51 @@ app.post('/auth/registrar', async(req, res) => {
     const { nome, email, senha, confirmacaosenha } = req.body
 
 
-    // Validação de usuário
+    // Validação de usuário: nome, email, senha, confirmacaosenha...
     if (!nome) {
-        return res.status(422).json({ mensagem: " O campo nome é obrigatório!"})
+        return res.status(422).json({ mensagem: " O nome é obrigatório!"})
+    }
+    if (!email) {
+        return res.status(422).json({ mensagem: " O email é obrigatório!"})
+    }
+    if (!senha) {
+        return res.status(422).json({ mensagem: " A senha é obrigatória!"})
+    }
+    if (senha !== confirmacaosenha) {
+        return res.status(422).json({ mensagem: " As senhas não conferem!"})
     }
 
-})
+    // Validação User: verificar se email de usuário já existe...
+    // Essa função garante que o mesmo email seja cadastrado apenas 1 vez no banco.
+    const usuarioExiste = await User.findOne({ email: email})
+
+    if (usuarioExiste) {
+        return res.status(422).json({ mensagem: "Por favor, utilize outro email!"})
+    }
+
+    // Criar senha
+    const salt = await bcrypt.genSalt(12)
+    const senhaHash = await bcrypt.hash(senha, salt)
+
+    // Criar usuário
+    const user = new User({
+        nome,
+        email,
+        senha: senhaHash,
+    })
+
+    try {
+
+        await user.save()
+
+        res.status(201).json({ mensagem: "Usuário criado com sucesso!"})
+
+    } catch(error) {
+        console.log(error)
+        res.status(500).json({ mensagem: "Aconteceu um erro no servidor, tente novamente mais tarde!"})
+    }
+
+});
 
 // Credenciais de acesso.
 const DB_USER = process.env.DB_USER;
